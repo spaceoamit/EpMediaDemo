@@ -1,4 +1,4 @@
 # EpMediaDemo
-基于FFmpeg开发的视频处理框架，简单易用，体积小，帮助使用者快速实现视频处理功能。包含以下功能：剪辑，裁剪，旋转，镜像，合并，分离，添加LOGO，添加滤镜，添加背景音乐，加速减速视频，倒放音视频。
-简单的Demo,后面逐渐完善各类功能的使用。
-<a href="https://github.com/yangjie10930/EpMedia" target="_blank">原库地址</a>
+The video processing framework developed based on FFmpeg is easy to use and small in size, helping users to quickly implement video processing functions. It includes the following functions: editing, cropping, rotating, mirroring, merging, separating, adding LOGO, adding filters, adding background music, accelerating deceleration video, and rewinding audio and video.
+Simple demo, gradually improve the use of various functions.
+<a href="https://github.com/yangjie10930/EpMedia" target="_blank">Original library address</a>
