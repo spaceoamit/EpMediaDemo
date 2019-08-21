@@ -11,7 +11,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:textSize="20sp"
-        android:text="请选择文件:\n"
+        android:text="Please select the file: \n"
         android:textColor="@color/colorPrimary"/>
 
     <LinearLayout
@@ -27,7 +27,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_margin="20dp"
-            android:text="添加视频"/>
+            android:text="Add video"/>
 
         <Button
             android:id="@+id/bt_merge"
@@ -35,7 +35,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_margin="20dp"
-            android:text="开始合并"/>
+            android:text="Start merging"/>
 
 
     </LinearLayout>

@@ -3,9 +3,8 @@ package com.joe.epmediademo.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -133,25 +132,46 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 			if(cb_rotation.isChecked())
 				epVideo.rotation(Integer.parseInt(et_rotation.getText().toString().trim()),cb_mirror.isChecked());
 			if(cb_text.isChecked())
-				epVideo.addText(Integer.parseInt(et_text_x.getText().toString().trim()),Integer.parseInt(et_text_y.getText().toString().trim()),30,"red",MyApplication.getSavePath() + "msyh.ttf",et_text.getText().toString().trim());
+				epVideo.addText(Integer.parseInt(et_text_x.getText().toString().trim()),Integer.parseInt(et_text_y.getText().toString().trim()),30,"red",
+                        MyApplication.getSavePath() + "msyh.ttf",et_text.getText().toString().trim());
 			mProgressDialog.setProgress(0);
 			mProgressDialog.show();
 			final String outPath = MyApplication.getSavePath() + "out.mp4";
 			EpEditor.exec(epVideo, new EpEditor.OutputOption(outPath), new OnEditorListener() {
 				@Override
 				public void onSuccess() {
-					Toast.makeText(EditActivity.this, "编辑完成:"+outPath, Toast.LENGTH_SHORT).show();
-					mProgressDialog.dismiss();
 
-					Intent v = new Intent(Intent.ACTION_VIEW);
-					v.setDataAndType(Uri.parse(outPath), "video/mp4");
-					startActivity(v);
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+
+							runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									Toast.makeText(EditActivity.this, "Edit completed:"+outPath, Toast.LENGTH_SHORT).show();
+									mProgressDialog.dismiss();
+
+									Intent v = new Intent(Intent.ACTION_VIEW);
+									v.setDataAndType(Uri.parse(outPath), "video/mp4");
+									startActivity(v);
+								}
+							});
+
+						}
+					});
+
 				}
 
 				@Override
 				public void onFailure() {
-					Toast.makeText(EditActivity.this, "编辑失败", Toast.LENGTH_SHORT).show();
-					mProgressDialog.dismiss();
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							Toast.makeText(EditActivity.this, "Edit failed", Toast.LENGTH_SHORT).show();
+							mProgressDialog.dismiss();
+						}
+					});
+
 				}
 
 				@Override
@@ -160,7 +180,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 				}
 			});
 		}else{
-			Toast.makeText(this, "选择一个视频", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Choose a video", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -169,7 +189,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 		EpEditor.music(videoUrl, "/storage/emulated/0/DownLoad/huluwa.aac", outPath, 1.0f, 1.0f, new OnEditorListener() {
 			@Override
 			public void onSuccess() {
-				Toast.makeText(EditActivity.this, "编辑完成:"+outPath, Toast.LENGTH_SHORT).show();
+
+
+				Toast.makeText(EditActivity.this, "Edit completed:"+outPath, Toast.LENGTH_SHORT).show();
 
 				Intent v = new Intent(Intent.ACTION_VIEW);
 				v.setDataAndType(Uri.parse(outPath), "video/mp4");
@@ -178,7 +200,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
 			@Override
 			public void onFailure() {
-				Toast.makeText(EditActivity.this, "编辑失败", Toast.LENGTH_SHORT).show();
+				Toast.makeText(EditActivity.this, "Edit failed", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override

@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:text="剪辑"/>
+                android:text="Clip"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="第 "/>
+                    android:text="First "/>
 
                 <EditText
                     android:id="@+id/et_clip_start"
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 秒 到 第 "/>
+                    android:text="Second to first"/>
 
                 <EditText
                     android:id="@+id/et_clip_end"
@@ -61,7 +61,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 秒"/>
+                    android:text=" second"/>
 
             </LinearLayout>
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:text="裁剪"/>
+                android:text="Crop"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="起始位置 X: "/>
+                    android:text="starting point X: "/>
 
                 <EditText
                     android:id="@+id/et_crop_x"
@@ -118,7 +118,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="裁剪范围 宽:"/>
+                    android:text="Cutting range wide:"/>
 
                 <EditText
                     android:id="@+id/et_crop_w"
@@ -131,7 +131,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 高:"/>
+                    android:text=" high:"/>
 
                 <EditText
                     android:id="@+id/et_crop_h"
@@ -156,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:text="旋转"/>
+                    android:text="Rotate"/>
 
 
                 <CheckBox
@@ -165,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:text="镜像"/>
+                    android:text="Mirror"/>
 
 
             </LinearLayout>
@@ -179,7 +179,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="旋转角度: "/>
+                    android:text="Rotation angle: "/>
 
                 <EditText
                     android:id="@+id/et_rotation"
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:text="字幕"/>
+                android:text="subtitle"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -210,7 +210,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="字幕位置 X: "/>
+                    android:text="Subtitle position X: "/>
 
                 <EditText
                     android:id="@+id/et_text_x"
@@ -244,14 +244,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="字幕内容:"/>
+                    android:text="Subtitle content:"/>
 
                 <EditText
                     android:id="@+id/et_text"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="我是字幕"/>
+                    android:text="Testing subtitle text"/>
 
             </LinearLayout>
 
@@ -264,7 +264,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:textSize="20sp"
-                android:text="请选择文件:"
+                android:text="Please Select File:"
                 android:textColor="@color/colorPrimary"/>
 
             <LinearLayout
@@ -278,7 +278,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_margin="20dp"
-                    android:text="选择文件"/>
+                    android:text="Select File"/>
 
                 <Button
                     android:id="@+id/bt_exec"
@@ -286,7 +286,7 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_margin="20dp"
-                    android:text="开始处理"/>
+                    android:text="Start processing"/>
 
 
             </LinearLayout>

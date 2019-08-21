@@ -3,8 +3,8 @@ package com.joe.epmediademo.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -46,7 +46,7 @@ public class MergeActivity extends AppCompatActivity implements View.OnClickList
 		mProgressDialog.setMax(100);
 		mProgressDialog.setCancelable(false);
 		mProgressDialog.setCanceledOnTouchOutside(false);
-		mProgressDialog.setTitle("正在处理");
+		mProgressDialog.setTitle("Processing");
 		bt_add.setOnClickListener(this);
 		bt_merge.setOnClickListener(this);
 	}
@@ -98,17 +98,25 @@ public class MergeActivity extends AppCompatActivity implements View.OnClickList
 			EpEditor.merge(videoList, new EpEditor.OutputOption(outPath), new OnEditorListener() {
 				@Override
 				public void onSuccess() {
-					Toast.makeText(MergeActivity.this, "编辑完成:"+outPath, Toast.LENGTH_SHORT).show();
-					mProgressDialog.dismiss();
 
-					Intent v = new Intent(Intent.ACTION_VIEW);
-					v.setDataAndType(Uri.parse(outPath), "video/mp4");
-					startActivity(v);
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+
+							Toast.makeText(MergeActivity.this, "Edit completed:"+outPath, Toast.LENGTH_SHORT).show();
+							mProgressDialog.dismiss();
+
+							Intent v = new Intent(Intent.ACTION_VIEW);
+							v.setDataAndType(Uri.parse(outPath), "video/mp4");
+							startActivity(v);
+						}
+					});
+
 				}
 
 				@Override
 				public void onFailure() {
-					Toast.makeText(MergeActivity.this, "编辑失败", Toast.LENGTH_SHORT).show();
+					Toast.makeText(MergeActivity.this, "Edit failed", Toast.LENGTH_SHORT).show();
 					mProgressDialog.dismiss();
 				}
 
@@ -119,7 +127,7 @@ public class MergeActivity extends AppCompatActivity implements View.OnClickList
 
 			});
 		} else {
-			Toast.makeText(this, "至少添加两个视频", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Add at least two videos", Toast.LENGTH_SHORT).show();
 		}
 	}
 }
